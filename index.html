@@ -12,10 +12,6 @@
 <body>
     <div id="wrapper">
         <div id="header">
-            <form id="search-bar">
-                <input type="search" name="searchBox" id="searchBox" placeholder="Allow me find thy book ...">
-                <button>Make it appear!</button>
-            </form>
             <form id="colorMode">
                 <p>Change mode:</p>
                 <input type="radio" name="colorMode" id="darkMode" value="dark" checked="checked">
@@ -24,41 +20,84 @@
                 <label for="darkMode">Darker</label>
             </form>
         </div>
+
         <div id="titleArea">
             <h1>Wise Herbert's spellbooks</h1>
             <h3>Selling spellbooks for dark wizards since 437 BC.</h3>
         </div>
-    </div>
 
-    <div id="onSaleArea">
-        <h2>Currently on sale!*</h2>
-        <div id="onSaleBooksList">
-            <ul>
-                <li class="onSaleBook">Book1</li>
-                <li class="onSaleBook">Book2</li>
-                <li class="onSaleBook">Book3</li>
-            </ul>
+        <div id="sellArea">
+            <h2>Spellbooks for sale</h2>
+            <div id="sellBooksList">
+                <ul>
+                    <li class="sellBook">
+                        <span class="bookName">How to disappear</span>
+                        <span class="bookAuthor">Alfons Redbeard</span>
+                        <span class="bookPrice">10 lion tooths</span>
+                        <button class="purchase">It shall be mine</button>
+                    </li>
+                    <li class="sellBook">
+                        <span class="bookName">Tales from Underworld</span>
+                        <span class="bookAuthor">Death Itself</span>
+                        <span class="bookPrice">9000 souls</span>
+                        <button class="purchase">It shall be mine</button>
+                    </li>
+                    <li class="sellBook">
+                        <span class="bookName">My wife is a Dragon</span>
+                        <span class="bookAuthor">Shalekh Harejama</span>
+                        <span class="bookPrice">4 shiny dragon scales</span>
+                        <button class="purchase">It shall be mine</button>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <p>*This sale never ends</p>
-    </div>
 
-    <div id="newBooksArea">
-        <h2>Recently added to my dusty shelves</h2>
-        <div id="newBooksList">
-            <ul>
-                <li class="newBook">Book1</li>
-                <li class="newBook">Book2</li>
-                <li class="newBook">Book3</li>
-                <li class="newBook">Book4</li>
-            </ul>
+        <div id="archiveBooksArea">
+            <h2>Spellbooks in my dusty archive </h2>
+            <div id="archiveBooksList">
+                <ul>
+                    <li class="archiveBook">
+                        <span class="bookName">How to disappear</span>
+                        <span class="bookAuthor">Alfons Redbeard</span>
+                    </li>
+                    <li class="archiveBook">
+                        <span class="bookName">Tales from Underworld</span>
+                        <span class="bookAuthor">Death Itself</span>
+                    </li>
+                    <li class="archiveBook">
+                        <span class="bookName">My wife is a Dragon</span>
+                        <span class="bookAuthor">Shalekh Harejama</span>
+                    </li>
+                </ul>
+            </div>
         </div>
+
         <div id="addNewBooksArea">
             <h2>Conjure new books!</h2>
-            <form>
-                <input type="text" name="newBook" id="nameNewBook" placeholder="Add new name">
-                <button>Make it happen!</button>
+            <ul id="addNewBooks">
+                <input type="text" name="newBook" id="nameNewBook" class="addBook" placeholder="How shall we call it?">
+                <input type="text" name="newBook" id="authorNewBook" class="addBook" placeholder="Who wrote it?">
+                <input type="text" name="newBook" id="priceNewBook" class="addBook" placeholder="How much for it?">
+                <input type="checkbox" name="checkSale" id="sellNewBook">
+                <label for="checkSale">Can it be sold?</label>
+            </ul>
+            <button type="submit" id="conjureConfirm">Make it appear!</button>
+        </div>
+
+        <div id="burnBooksArea">
+            <h2>Burn that blasphemous monstrosity!</h2>
+            <form id="searchBurnBooks">
+                <input type="search" name="searchBox" id="searchBox" placeholder="Which book shall I burn?">
+                <ul id="burnBooksList">
+                    <li id="burnNothing">Nothing to burn...</li>
+                </ul>
+                <button type="submit" id="burnConfirm">Burn it!</button>
             </form>
         </div>
+    </div>
+
+    <div id="footer">
+        <p>Conjured by Dark Web Wizard Erik in 2023</p>
     </div>
 
     <script src="./script.js"></script>
