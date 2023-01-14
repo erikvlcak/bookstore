@@ -13,22 +13,54 @@
     <div id="wrapper">
         <div id="header">
             <form id="search-bar">
-                <input type="search" name="searchBox" id="searchBox" placeholder="Let me find it for you...">
-                <button>Search</button>
+                <input type="search" name="searchBox" id="searchBox" placeholder="Allow me find thy book ...">
+                <button>Make it appear!</button>
             </form>
             <form id="colorMode">
-
-                <input type="radio" name="colorMode" id="lightMode" value="light" checked="checked">
+                <p>Change mode:</p>
+                <input type="radio" name="colorMode" id="darkMode" value="dark" checked="checked">
                 <label for="lightMode">Dark</label>
-                <input type="radio" name="colorMode" id="darkMode" value="dark">
+                <input type="radio" name="colorMode" id="darkerMode" value="darker">
                 <label for="darkMode">Darker</label>
             </form>
         </div>
         <div id="titleArea">
-            <h1 class="title">Wise Herbert's spellbooks</h1>
-            <h2 class="title">Selling spellbooks for dark wizards since 437 BC.</h2>
+            <h1>Wise Herbert's spellbooks</h1>
+            <h3>Selling spellbooks for dark wizards since 437 BC.</h3>
         </div>
     </div>
+
+    <div id="onSaleArea">
+        <h2>Currently on sale!*</h2>
+        <div id="onSaleBooksList">
+            <ul>
+                <li class="onSaleBook">Book1</li>
+                <li class="onSaleBook">Book2</li>
+                <li class="onSaleBook">Book3</li>
+            </ul>
+        </div>
+        <p>*This sale never ends</p>
+    </div>
+
+    <div id="newBooksArea">
+        <h2>Recently added to my dusty shelves</h2>
+        <div id="newBooksList">
+            <ul>
+                <li class="newBook">Book1</li>
+                <li class="newBook">Book2</li>
+                <li class="newBook">Book3</li>
+                <li class="newBook">Book4</li>
+            </ul>
+        </div>
+        <div id="addNewBooksArea">
+            <h2>Conjure new books!</h2>
+            <form>
+                <input type="text" name="newBook" id="nameNewBook" placeholder="Add new name">
+                <button>Make it happen!</button>
+            </form>
+        </div>
+    </div>
+
     <script src="./script.js"></script>
 </body>
 
