@@ -7,53 +7,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Macondo&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="darker">
     <div id="wrapper">
         <div id="header">
-            <form id="colorMode">
+            <div class="modes">
+
                 <p>Change mode:</p>
                 <input type="radio" name="colorMode" id="darkMode" value="dark" checked="checked">
-                <label for="lightMode">Dark</label>
+                <label for="darkMode" class="darkMode">Dark</label>
                 <input type="radio" name="colorMode" id="darkerMode" value="darker">
-                <label for="darkMode">Darker</label>
-            </form>
-        </div>
+                <label for="darkerMode" class="darkerMode">Darker</label>
 
-        <div id="titleArea">
-            <h1>Wise Herbert's spellbooks</h1>
-            <h3>Selling spellbooks for dark wizards since 437 BC.</h3>
-        </div>
-
-        <div id="sellArea">
-            <h2>Spellbooks for sale</h2>
-            <div id="sellBooksList">
-                <ul>
-                    <li class="sellBook">
-                        <span class="bookName">How to disappear</span>
-                        <span class="bookAuthor">Alfons Redbeard</span>
-                        <span class="bookPrice">10 lion tooths</span>
-                        <button class="purchase">It shall be mine</button>
-                    </li>
-                    <li class="sellBook">
-                        <span class="bookName">Tales from Underworld</span>
-                        <span class="bookAuthor">Death Itself</span>
-                        <span class="bookPrice">9000 souls</span>
-                        <button class="purchase">It shall be mine</button>
-                    </li>
-                    <li class="sellBook">
-                        <span class="bookName">My wife is a Dragon</span>
-                        <span class="bookAuthor">Shalekh Harejama</span>
-                        <span class="bookPrice">4 shiny dragon scales</span>
-                        <button class="purchase">It shall be mine</button>
-                    </li>
-                </ul>
             </div>
         </div>
 
+        <div id="titleArea">
+            <div class="titles">
+                <h1>Balding Herbert's Spellbooks of Dark Magic</h1>
+                <h3>Selling spellbooks for young Dark Wizards since 437 BC.</h3>
+            </div>
+        </div>
+
+        <div id="sellArea">
+            <h2>Available spellbooks for Dark Wizards*</h2>
+            <div class="sellBooks">
+                <ul class="sellBooksList">
+                    <li class="sellBook">
+                        <div class="bookData">
+                            <span class="bookName">Dark Spells and You</span>
+                            <span class="bookAuthor">by Alfons Redbeard</span>
+                            <span class="bookPrice">For 10 lion tooths</span>
+                        </div>
+                        <button class="purchase">This book shall be mine</button>
+                    </li>
+                    <li class="sellBook">
+                        <div class="bookData">
+
+                            <span class="bookName">How to live forever</span>
+                            <span class="bookAuthor">by Death Itself</span>
+                            <span class="bookPrice">For 9000 souls</span>
+                        </div>
+                        <button class="purchase">This book shall be mine</button>
+                    </li>
+                    <li class="sellBook">
+                        <div class="bookData">
+
+                            <span class="bookName">Quick guide for summoning demons</span>
+                            <span class="bookAuthor">by Shalekh Harejama</span>
+                            <span class="bookPrice">For 1 bottled flame</span>
+                        </div>
+                        <button class="purchase">This book shall be mine</button>
+                    </li>
+                </ul>
+            </div>
+            <p>*Cast dark spells on your own responsibility.</p>
+        </div>
+
         <div id="archiveBooksArea">
-            <h2>Spellbooks in my dusty archive </h2>
+            <h2>Old spellbooks in my dusty archive </h2>
             <div id="archiveBooksList">
                 <ul>
                     <li class="archiveBook">
@@ -85,7 +101,7 @@
         </div>
 
         <div id="burnBooksArea">
-            <h2>Burn that blasphemous monstrosity!</h2>
+            <h2>Burn these blasphemous monstrosities!</h2>
             <form id="searchBurnBooks">
                 <input type="search" name="searchBox" id="searchBox" placeholder="Which book shall I burn?">
                 <ul id="burnBooksList">
