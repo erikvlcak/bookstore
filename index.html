@@ -16,6 +16,11 @@
     <div id="wrapper">
         <div id="header">
             <div class="modes">
+                <form>
+                    <label for="money">How many coins do you have?</label>
+                    <input type="text" name="money" id="money">
+                    <button class="button">This many!</button>
+                </form>
 
                 <p>Change mode:</p>
                 <input type="radio" name="colorMode" id="darkMode" value="dark" checked="checked">
@@ -34,50 +39,50 @@
         </div>
 
         <div id="sellArea">
-            <h2>Available spellbooks for Dark Wizards*</h2>
+            <h2>Purchasable spellbooks for Dark Wizards*</h2>
             <div class="sellBooks">
                 <ul class="sellBooksList">
                     <li class="sellBook">
                         <div class="bookData">
-                            <span class="bookName">Dark Spells and You</span>
-                            <span class="bookAuthor">by Alfons Redbeard</span>
-                            <span class="bookPrice">For 10 lion tooths</span>
+                            <span class="bookName">Dark Spells changed my life and now I am dead</span>
+                            <span class="bookAuthor">by Arthurius Kartaos</span>
+                            <span class="bookPrice">For 20 coins</span>
                         </div>
-                        <button class="purchase">This book shall be mine</button>
+                        <button class="button">This book shall be mine</button>
                     </li>
                     <li class="sellBook">
                         <div class="bookData">
 
-                            <span class="bookName">How to live forever</span>
-                            <span class="bookAuthor">by Death Itself</span>
-                            <span class="bookPrice">For 9000 souls</span>
+                            <span class="bookName">How to live forever and why is it a bad idea</span>
+                            <span class="bookAuthor">by Mara Jakka Jr.</span>
+                            <span class="bookPrice">For 56 coins</span>
                         </div>
-                        <button class="purchase">This book shall be mine</button>
+                        <button class="button">This book shall be mine</button>
                     </li>
                     <li class="sellBook">
                         <div class="bookData">
 
                             <span class="bookName">Quick guide for summoning demons</span>
                             <span class="bookAuthor">by Shalekh Harejama</span>
-                            <span class="bookPrice">For 1 bottled flame</span>
+                            <span class="bookPrice">For 43 coins</span>
                         </div>
-                        <button class="purchase">This book shall be mine</button>
+                        <button class="button">This book shall be mine</button>
                     </li>
                 </ul>
             </div>
-            <p>*Cast dark spells on your own responsibility.</p>
+            <p class="warning">*Cast dark spells on your own responsibility.</p>
         </div>
 
         <div id="archiveBooksArea">
-            <h2>Old spellbooks in my dusty archive </h2>
+            <h2>Archived spellbooks</h2>
             <div id="archiveBooksList">
-                <ul>
+                <ul class="archiveBooks">
                     <li class="archiveBook">
                         <span class="bookName">How to disappear</span>
                         <span class="bookAuthor">Alfons Redbeard</span>
                     </li>
                     <li class="archiveBook">
-                        <span class="bookName">Tales from Underworld</span>
+                        <span class="bookName">Tales from the Underworld</span>
                         <span class="bookAuthor">Death Itself</span>
                     </li>
                     <li class="archiveBook">
@@ -97,7 +102,7 @@
                 <input type="checkbox" name="checkSale" id="sellNewBook">
                 <label for="checkSale">Can it be sold?</label>
             </ul>
-            <button type="submit" id="conjureConfirm">Make it appear!</button>
+            <button type="submit button" class="conjureConfirm button">Make it appear!</button>
         </div>
 
         <div id="burnBooksArea">
@@ -107,7 +112,7 @@
                 <ul id="burnBooksList">
                     <li id="burnNothing">Nothing to burn...</li>
                 </ul>
-                <button type="submit" id="burnConfirm">Burn it!</button>
+                <button type="submit button" class="conjureConfirm button">Burn it!</button>
             </form>
         </div>
     </div>
