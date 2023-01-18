@@ -12,31 +12,42 @@
     <link href="https://fonts.googleapis.com/css2?family=Macondo&display=swap" rel="stylesheet">
 </head>
 
-<body class="darker">
+<body>
+
+    <video autoplay muted loop>
+        <source src="./videos/magic_dust.mp4" type="video/mp4">
+    </video>
+
     <div id="wrapper">
         <div id="header">
-            <div class="modes">
-                <form>
-                    <label for="money">How many coins do you have?</label>
-                    <input type="text" name="money" id="money">
-                    <button class="button">This many!</button>
-                </form>
 
-                <p>Change mode:</p>
-                <input type="radio" name="colorMode" id="darkMode" value="dark" checked="checked">
-                <label for="darkMode" class="darkMode">Dark</label>
-                <input type="radio" name="colorMode" id="darkerMode" value="darker">
-                <label for="darkerMode" class="darkerMode">Darker</label>
+            <form class="add-money">
+                <label for="money">How many coins do you have?</label>
+                <input type="text" name="money" id="money" placeholder="Let us know...">
+                <button class="button">This many!</button>
+            </form>
 
+            <div class="wallet">
+                <p>Your wallet:</p>
+                <p><span class="wallet-sum">5</span> Coin(s)</p>
             </div>
+
         </div>
 
+
+
         <div id="titleArea">
+
+            <video class="titleVideo" autoplay muted>
+                <source src="./videos/magic-book.mp4" type="video/mp4">
+            </video>
+
             <div class="titles">
-                <h1>Balding Herbert's Spellbooks of Dark Magic</h1>
+                <h1>Balding Herbert's Magical Bookstore</h1>
                 <h3>Selling spellbooks for young Dark Wizards since 437 BC.</h3>
             </div>
         </div>
+
 
         <div id="sellArea">
             <h2>Purchasable spellbooks for Dark Wizards*</h2>
@@ -115,11 +126,11 @@
                 <button type="submit button" class="conjureConfirm button">Burn it!</button>
             </form>
         </div>
+        <div id="footer">
+            <p>Conjured by Dark Web Wizard Erik in 2023</p>
+        </div>
     </div>
 
-    <div id="footer">
-        <p>Conjured by Dark Web Wizard Erik in 2023</p>
-    </div>
 
     <script src="./script.js"></script>
 </body>
