@@ -29,7 +29,7 @@
 
             <div class="wallet">
                 <p>Your wallet:</p>
-                <p><span class="wallet-sum">5</span> Coin(s)</p>
+                <p><span class="wallet-sum">0</span> Coin(s)</p>
             </div>
 
         </div>
@@ -85,35 +85,69 @@
         </div>
 
         <div id="archiveBooksArea">
-            <h2>Archived spellbooks</h2>
-            <div id="archiveBooksList">
-                <ul class="archiveBooks">
-                    <li class="archiveBook">
-                        <span class="bookName">How to disappear</span>
-                        <span class="bookAuthor">Alfons Redbeard</span>
-                    </li>
-                    <li class="archiveBook">
-                        <span class="bookName">Tales from the Underworld</span>
-                        <span class="bookAuthor">Death Itself</span>
-                    </li>
-                    <li class="archiveBook">
-                        <span class="bookName">My wife is a Dragon</span>
-                        <span class="bookAuthor">Shalekh Harejama</span>
-                    </li>
-                </ul>
+            <div class="archiveBooksAreaElements">
+                <h2>Archived spellbooks</h2>
+                <div id="archiveBooksList">
+                    <ul class="archiveBooks">
+                        <li class="archiveBook">
+                            <span class="bookName">How to disappear</span>
+                            <span class="bookAuthor">Alfons Redbeard</span>
+                        </li>
+                        <li class="archiveBook">
+                            <span class="bookName">Tales from the Underworld</span>
+                            <span class="bookAuthor">Death Itself</span>
+                        </li>
+                        <li class="archiveBook">
+                            <span class="bookName">My wife is a Dragon</span>
+                            <span class="bookAuthor">Shalekh Harejama</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
 
         <div id="addNewBooksArea">
-            <h2>Conjure new books!</h2>
-            <ul id="addNewBooks">
-                <input type="text" name="newBook" id="nameNewBook" class="addBook" placeholder="How shall we call it?">
-                <input type="text" name="newBook" id="authorNewBook" class="addBook" placeholder="Who wrote it?">
-                <input type="text" name="newBook" id="priceNewBook" class="addBook" placeholder="How much for it?">
-                <input type="checkbox" name="checkSale" id="sellNewBook">
-                <label for="checkSale">Can it be sold?</label>
-            </ul>
-            <button type="submit button" class="conjureConfirm button">Make it appear!</button>
+            <div class="addNewBooksAreaElements">
+
+                <h2>Conjure new book!</h2>
+
+                <div class="addNewBooksElementsFlex">
+
+                    <div class="addNewBooks">
+                        <div class="newName">
+                            <p>Add name of new spellbook</p>
+                            <input type="text" name="newBook" id="nameNewBook" class="addBook"
+                                placeholder="How shall we call it?">
+                        </div>
+                        <div class="newAuthor">
+                            <p>Add it's author</p>
+                            <input type="text" name="newBook" id="authorNewBook" class="addBook"
+                                placeholder="Who wrote it?">
+                        </div>
+                        <div class="newPrice">
+                            <p>Set it's price</p>
+                            <input type="text" name="newBook" id="priceNewBook" class="addBook"
+                                placeholder="How much for it?">
+                        </div>
+                        <div class="Sellable">
+                            <p>Can it be sold</p>
+                            <div class="sellYesNo">
+                                <input type="radio" name="sellNewBook" id="sellNewBookYes">
+                                <label for="sellNewBookYes">Yes</label>
+                                <input type="radio" name="sellNewBook" id="sellNewBookNo">
+                                <label for="sellNewBookNo">No</label>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+
+
+                </div>
+                <button type="submit button" class="conjureConfirm button">Make it appear!</button>
+            </div>
         </div>
 
         <div id="burnBooksArea">

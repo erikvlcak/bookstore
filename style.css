@@ -4,6 +4,8 @@
 
 ul {
     list-style-type: none;
+    margin: 0px;
+    padding: 0px;
 }
 
 
@@ -194,19 +196,33 @@ input[type=search]:focus {
 }
 
 #archiveBooksArea {
-    display: flex;
-    flex-flow: column wrap;
-    align-items: center;
-    justify-content: space-evenly;
-    height: 25em;
+
     border-top: 5px rgb(255, 215, 0, 0.5) solid;
     border-bottom: 5px rgb(255, 215, 0, 0.5) solid;
     color: white;
+    background: url(./images/manyBooks.jpg);
+    /* background-attachment: fixed;
+    background-position: 10% 100%; */
+    background-size: cover;
+}
+
+.archiveBooksAreaElements {
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    height: 25em;
 }
 
 #archiveBooksList {
     min-width: 50%;
+
 }
+
+
 
 .archiveBooks {
     padding: 0px;
@@ -251,12 +267,13 @@ input[type=search]:focus {
     position: relative;
     object-fit: cover;
     z-index: 0;
+
 }
 
 .titles {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5);
     position: absolute;
@@ -264,4 +281,81 @@ input[type=search]:focus {
     left: 0;
     bottom: 1;
     right: 0;
+    height: 100%;
+}
+
+#addNewBooksArea {
+    border-top: 5px rgb(255, 215, 0, 0.5) solid;
+    border-bottom: 5px rgb(255, 215, 0, 0.5) solid;
+
+}
+
+.addNewBooksAreaElements {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 30em
+}
+
+.addNewBooks {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
+    width: 10em;
+}
+
+.addNewBooksElementsFlex {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-evenly;
+    height: 15em;
+    width: 25em;
+
+    border: 5px solid gold;
+    padding: 10px 20px;
+}
+
+.addNewBooks input[type=text],
+input[type=checkbox] {
+    width: 100%;
+}
+
+.addNewBooksLabels p {
+    margin: 0px;
+    padding: 4px 0px;
+    text-align: end;
+
+}
+
+.addNewBooks {
+    height: 10em;
+    width: auto;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-evenly;
+    flex: 1 1 0;
+}
+
+.addNewBooks div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.addNewBooks input[type='text'] {
+    width: 200px;
+
+}
+
+.sellYesNo {
+    text-align: start;
+}
+
+.sellYesNo label:first-of-type {
+    padding-right: 20px;
 }
