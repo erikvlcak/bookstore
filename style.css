@@ -1,6 +1,6 @@
-* {
+/* * {
     border: solid red 1px;
-}
+} */
 
 ul {
     list-style-type: none;
@@ -348,12 +348,17 @@ input[type=checkbox] {
 }
 
 .addNewBooks input[type='text'] {
-    width: 200px;
+    width: 300px;
 
 }
 
 .sellYesNo {
     text-align: start;
+}
+
+.newPrice input[type='text'] {
+    margin: 0px 10px 0px auto;
+    width: 120px;
 }
 
 .sellYesNo label:first-of-type {
