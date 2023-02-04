@@ -41,7 +41,7 @@ let sellList = document.querySelectorAll('.sellBooksList');
 sellList.forEach((book) => {
     book.addEventListener('click', (e) => {
         if (e.target.tagName == 'BUTTON') {
-
+            e.target.parentElement.parentElement.removeChild(e.target.parentElement);
         }
     })
 })
