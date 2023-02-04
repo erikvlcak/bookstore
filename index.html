@@ -21,11 +21,11 @@
     <div id="wrapper">
         <div id="header">
 
-            <form class="add-money">
+            <div class="add-money">
                 <label for="money">How many coins do you have?</label>
                 <input type="text" name="money" id="money" placeholder="Let us know...">
                 <button class="button">This many!</button>
-            </form>
+            </div>
 
             <div class="wallet">
                 <p>Your wallet:</p>
@@ -50,7 +50,7 @@
 
         <div id="sellArea">
             <div class="sellAreaElements">
-                <h2>Purchasable spellbooks for Dark Wizards*</h2>
+                <h2>Purchasable spellbooks*</h2>
                 <div class="sellBooks">
                     <ul class="sellBooksList">
                         <li class="sellBook">
@@ -79,24 +79,17 @@
                             </div>
                             <button class="button">This book shall be mine</button>
                         </li>
-                        <li class="sellBook">
-                            <div class="bookData">
-                                <span class="bookName">Dark Spells changed my life and now I am dead</span>
-                                <span class="bookAuthor">by Arthurius Kartaos</span>
-                                <span class="bookPrice">For 20 coins</span>
-                            </div>
-                            <button class="button">This book shall be mine</button>
-                        </li>
+
 
                     </ul>
                 </div>
-                <p class="warning">*Cast dark spells on your own responsibility.</p>
+                <p class="warning">*Cast spells on your own responsibility.</p>
             </div>
         </div>
 
         <div id="archiveBooksArea">
             <div class="archiveBooksAreaElements">
-                <h2>Archived spellbooks</h2>
+                <h2>Archived spellbooks*</h2>
                 <div id="archiveBooksList">
                     <ul class="archiveBooks">
                         <li class="archiveBook">
@@ -113,6 +106,7 @@
                         </li>
                     </ul>
                 </div>
+                <p class="warning">*Too dangerous to be passed around.</p>
             </div>
         </div>
 
@@ -144,9 +138,9 @@
                             <p>Can we sell it?</p>
                             <div class="sellYesNo">
                                 <input type="radio" name="sellNewBook" id="sellNewBookYes" checked>
-                                <label for="sellNewBookYes">Yes</label>
+                                <label for="sellNewBookYes">Yes, put it for sale.</label>
                                 <input type="radio" name="sellNewBook" id="sellNewBookNo">
-                                <label for="sellNewBookNo">No</label>
+                                <label for="sellNewBookNo">No, put it only into archive.</label>
                             </div>
                         </div>
 
@@ -158,6 +152,7 @@
 
                 </div>
                 <button type="submit button" class="conjureConfirm button">Make it appear!</button>
+
             </div>
         </div>
 

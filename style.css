@@ -1,5 +1,5 @@
 /* * {
-    border: solid red 1px;
+    border: solid red 0.1px;
 } */
 
 ul {
@@ -78,6 +78,9 @@ video {
 
 h1 {
     font-size: 120px;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
 }
 
 h3 {
@@ -98,12 +101,6 @@ h2 {
 
 .add-money button {
     margin-top: 0px;
-}
-
-
-
-.warning {
-    padding-right: 20px;
 }
 
 
@@ -130,7 +127,7 @@ h2 {
 
 }
 
-#sellArea p {
+.warning {
     margin-left: auto;
     padding-right: 10px;
     font-size: 15px;
@@ -221,22 +218,20 @@ input[type=search]:focus {
 }
 
 .archiveBooksAreaElements {
-    height: 100%;
-    width: 100%;
+
     background: rgba(0, 0, 0, 0.6);
     display: flex;
     flex-flow: column wrap;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     height: 30em;
+    padding: 20px;
 }
 
 #archiveBooksList {
     min-width: 50%;
 
 }
-
-
 
 .archiveBooks {
     padding: 0px;
@@ -313,7 +308,7 @@ input[type=search]:focus {
 .addNewBooksAreaElements {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5);
     height: 30em;
@@ -325,7 +320,7 @@ input[type=search]:focus {
     display: flex;
     flex-flow: column wrap;
     justify-content: space-around;
-    width: 10em;
+    width: 20em;
 }
 
 .addNewBooksElementsFlex {
@@ -333,7 +328,7 @@ input[type=search]:focus {
     flex-flow: column wrap;
     justify-content: space-evenly;
     height: 15em;
-    width: 25em;
+    width: 35em;
 
     border: 5px solid gold;
     padding: 10px 20px;
@@ -401,13 +396,12 @@ input[type=checkbox] {
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5);
     height: 30em;
-    width: 40em;
+    width: 100%;
     gap: 5em;
 }
 
 #searchBox {
     width: 40em;
-
 }
 
 .searchBurnBooksRadio {
@@ -426,8 +420,6 @@ input[type=checkbox] {
     border: 5px rgb(255, 215, 0) solid;
     ;
 }
-
-
 
 .burnConfirm {
     display: flex;
