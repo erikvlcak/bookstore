@@ -48,40 +48,50 @@
             </div>
         </div>
 
-
         <div id="sellArea">
-            <h2>Purchasable spellbooks for Dark Wizards*</h2>
-            <div class="sellBooks">
-                <ul class="sellBooksList">
-                    <li class="sellBook">
-                        <div class="bookData">
-                            <span class="bookName">Dark Spells changed my life and now I am dead</span>
-                            <span class="bookAuthor">by Arthurius Kartaos</span>
-                            <span class="bookPrice">For 20 coins</span>
-                        </div>
-                        <button class="button">This book shall be mine</button>
-                    </li>
-                    <li class="sellBook">
-                        <div class="bookData">
+            <div class="sellAreaElements">
+                <h2>Purchasable spellbooks for Dark Wizards*</h2>
+                <div class="sellBooks">
+                    <ul class="sellBooksList">
+                        <li class="sellBook">
+                            <div class="bookData">
+                                <span class="bookName">Dark Spells changed my life and now I am dead</span>
+                                <span class="bookAuthor">by Arthurius Kartaos</span>
+                                <span class="bookPrice">For 20 coins</span>
+                            </div>
+                            <button class="button">This book shall be mine</button>
+                        </li>
+                        <li class="sellBook">
+                            <div class="bookData">
 
-                            <span class="bookName">How to live forever and why is it a bad idea</span>
-                            <span class="bookAuthor">by Mara Jakka Jr.</span>
-                            <span class="bookPrice">For 56 coins</span>
-                        </div>
-                        <button class="button">This book shall be mine</button>
-                    </li>
-                    <li class="sellBook">
-                        <div class="bookData">
+                                <span class="bookName">How to live forever and why is it a bad idea</span>
+                                <span class="bookAuthor">by Mara Jakka Jr.</span>
+                                <span class="bookPrice">For 56 coins</span>
+                            </div>
+                            <button class="button">This book shall be mine</button>
+                        </li>
+                        <li class="sellBook">
+                            <div class="bookData">
 
-                            <span class="bookName">Quick guide for summoning demons</span>
-                            <span class="bookAuthor">by Shalekh Harejama</span>
-                            <span class="bookPrice">For 43 coins</span>
-                        </div>
-                        <button class="button">This book shall be mine</button>
-                    </li>
-                </ul>
+                                <span class="bookName">Quick guide for summoning demons</span>
+                                <span class="bookAuthor">by Shalekh Harejama</span>
+                                <span class="bookPrice">For 43 coins</span>
+                            </div>
+                            <button class="button">This book shall be mine</button>
+                        </li>
+                        <li class="sellBook">
+                            <div class="bookData">
+                                <span class="bookName">Dark Spells changed my life and now I am dead</span>
+                                <span class="bookAuthor">by Arthurius Kartaos</span>
+                                <span class="bookPrice">For 20 coins</span>
+                            </div>
+                            <button class="button">This book shall be mine</button>
+                        </li>
+
+                    </ul>
+                </div>
+                <p class="warning">*Cast dark spells on your own responsibility.</p>
             </div>
-            <p class="warning">*Cast dark spells on your own responsibility.</p>
         </div>
 
         <div id="archiveBooksArea">
@@ -133,7 +143,7 @@
                         <div class="Sellable">
                             <p>Can we sell it?</p>
                             <div class="sellYesNo">
-                                <input type="radio" name="sellNewBook" id="sellNewBookYes">
+                                <input type="radio" name="sellNewBook" id="sellNewBookYes" checked>
                                 <label for="sellNewBookYes">Yes</label>
                                 <input type="radio" name="sellNewBook" id="sellNewBookNo">
                                 <label for="sellNewBookNo">No</label>
@@ -152,17 +162,32 @@
         </div>
 
         <div id="burnBooksArea">
-            <h2>Burn these blasphemous monstrosities!</h2>
-            <form id="searchBurnBooks">
-                <input type="search" name="searchBox" id="searchBox" placeholder="Which book shall I burn?">
+            <div class="burnBooksAreaElements">
+                <h2>Burn these blasphemous books!</h2>
+
+                <div class="searchText">
+                    <div class="searchBurnBooksRadio">
+                        <div class="burnBooksSearchName">
+                            <input type="radio" name="burnBookName" id="burnBookName" checked>
+                            <label for="burnBookName">Search by book name</label>
+                        </div>
+                        <div class="burnBooksSearchAuthor">
+                            <input type="radio" name="burnBookAuthor" id="burnBookAuthor">
+                            <label for="burnBookAuthor">Search by book author</label>
+                        </div>
+                    </div>
+                    <input type="search" name="searchBox" id="searchBox" placeholder="Which book shall I burn?">
+
+                </div>
                 <ul id="burnBooksList">
                     <li id="burnNothing">Nothing to burn...</li>
                 </ul>
+
                 <button type="submit button" class="conjureConfirm button">Burn it!</button>
-            </form>
+            </div>
         </div>
         <div id="footer">
-            <p>Conjured by Dark Web Wizard Erik in 2023</p>
+            <p>Conjured by Dark Web Wizard Eryk in 2023</p>
         </div>
     </div>
 
