@@ -431,3 +431,14 @@ input[type=checkbox] {
     border-bottom: 5px rgb(255, 215, 0, 0.5) solid;
     text-align: center;
 }
+
+.empty {
+    display: none;
+    font-size: 28px;
+    color: white;
+}
+
+.coinsPrice {
+    text-decoration: underline;
+    color: gold;
+}
