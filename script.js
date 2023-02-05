@@ -1,5 +1,5 @@
 'use strict';
-
+//Slow down background video
 let video = document.querySelector('video');
 video.defaultPlaybackRate = 0.5;
 video.load();
@@ -39,7 +39,6 @@ coinsField.addEventListener('click', (e) => {
 
 //Remove book from the list if you have enough Coins. Subtract price from your wallet.
 let sellList = document.querySelectorAll('.sellBooksList');
-
 sellList.forEach((book) => {
     book.addEventListener('click', (e) => {
         if (e.target.tagName == 'BUTTON') {
@@ -49,7 +48,7 @@ sellList.forEach((book) => {
                 alert('You have no money in your wallet. Add some!');
             } else if (parseInt(bookPrice) <= parseInt(wallet)) {
                 alert(`
-                Spellbook
+                Spellbook:
                 
                 "${e.target.previousElementSibling.querySelector('.bookName').textContent}"
 
@@ -63,13 +62,71 @@ sellList.forEach((book) => {
                 alert(`Sorry, you are ${bookPrice - wallet} Coins short for this one.`)
             }
         }
-
         if (document.querySelectorAll('.sellBooksList li').length == 0) {
             document.querySelector('.empty').style.display = 'block';
         }
-
-
-
     })
+});
+
+//Create new book and set it for sale or into archive
+let createConfirm = document.querySelector('.conjureConfirm');
+
+
+createConfirm.addEventListener('click', (e) => {
+    let newName = document.querySelector('#nameNewBook').value;
+    let newAuthor = document.querySelector('#authorNewBook').value;
+    let newPrice = document.querySelector('#priceNewBook').value;
+
+    //for sale
+    if (document.querySelector('#sellNewBookYes').checked) {
+        //create new elements
+        let newLi = document.createElement('li');
+        let newDiv = document.createElement('div');
+        let newSpanName = document.createElement('span');
+        let newSpanAuthor = document.createElement('span');
+        let newSpanPrice = document.createElement('span');
+        let newSpanCoins = document.createElement('span');
+        let newButton = document.createElement('button');
+
+        //add classes to new elements
+        newLi.classList.add('sellBook');
+        newDiv.classList.add('bookData');
+        newSpanName.classList.add('bookName');
+        newSpanAuthor.classList.add('bookAuthor');
+        newSpanPrice.classList.add('bookPrice');
+        newSpanCoins.classList.add('coinsPrice');
+        newButton.classList.add('button');
+
+        //add content to new elements
+        newSpanName.textContent = newName;
+        newSpanAuthor.textContent = `by ${newAuthor}`;
+        newSpanCoins.textContent = Number(newPrice);
+        newButton.textContent = 'This book shall be mine';
+
+        //construct new book (li) and append to list (ul)
+        newSpanPrice.append('For');
+        newSpanPrice.appendChild(newSpanCoins);
+        newSpanPrice.append('Coins');
+        newDiv.appendChild(newSpanName);
+        newDiv.appendChild(newSpanAuthor);
+        newDiv.appendChild(newSpanPrice);
+        newLi.appendChild(newDiv);
+        newLi.appendChild(newButton);
+        sellList.forEach((item) => {
+            item.appendChild(newLi)
+        });
+
+        //set info that there are no more books left
+        if (document.querySelectorAll('.sellBooksList li').length != 0) {
+            document.querySelector('.empty').style.display = 'none';
+        }
+    } else {
+        //for archive
+
+    }
+
+
 })
+
+
 
