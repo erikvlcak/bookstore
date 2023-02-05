@@ -120,22 +120,29 @@
                 <div class="addNewBooksElementsFlex">
 
                     <div class="addNewBooks">
+
                         <div class="newName underline">
-                            <p>Add new title</p>
+                            <p class="inputText active">Add title of new book</p>
+                            <p class="inputTextError inactive">This field has to be filled.</p>
                             <input type="text" name="newBook" id="nameNewBook" class="addBook"
-                                placeholder="How shall we call it?">
+                                placeholder="Enter title of this book">
                         </div>
+
                         <div class="newAuthor underline">
-                            <p>Add it's author</p>
+                            <p class='inputText active'>Add author's name</p>
+                            <p class="inputTextError inactive">Authors name can't contain numbers.</p>
                             <input type="text" name="newBook" id="authorNewBook" class="addBook"
-                                placeholder="Who wrote it?">
+                                placeholder="Enter author's name and surname">
                         </div>
+
                         <div class="newPrice underline">
-                            <p>Set it's price</p>
+                            <p class="inputText active">Set price of this book</p>
+                            <p class="inputTextError inactive">Enter only numeric value.</p>
                             <input type="text" name="newBook" id="priceNewBook" class="addBook"
-                                placeholder="How much for it?">
+                                placeholder="Enter it's price">
                             <p>Coin(s)</p>
                         </div>
+
                         <div class="Sellable underline">
                             <p>Where should we put it?</p>
                             <div id="sellYesNo">

@@ -48,9 +48,17 @@ body {
     vertical-align: middle;
 }
 
+.inputTextError {
+    text-decoration: underline;
+}
 
+.active {
+    display: block;
+}
 
-
+.inactive {
+    display: none;
+}
 
 
 .wallet {
@@ -82,8 +90,8 @@ body {
 }
 
 #wrapper {
-    margin: 150px auto 80px;
-    max-width: 80%;
+    margin: 0px auto;
+    max-width: 75%;
     z-index: 2;
     background-color: black;
     border-right: 5px solid rgb(255, 215, 0, 0.5);
@@ -153,8 +161,6 @@ h2 {
     display: flex;
     flex-shrink: 1;
 }
-
-
 
 .warning {
     margin-left: auto;

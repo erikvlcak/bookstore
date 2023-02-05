@@ -1,7 +1,10 @@
 'use strict';
+
+const RED = '#FD4D4D';
+
 //Slow down background video
 let video = document.querySelector('video');
-video.defaultPlaybackRate = 0.5;
+video.defaultPlaybackRate = 1;
 video.load();
 
 //Add coins to wallet and add that value to coins property for further use.
@@ -36,6 +39,12 @@ coinsField.addEventListener('click', (e) => {
     }
 });
 
+let bookInfo = {
+    nameNewBook: /^[\w\s]+$/,
+    authorNewBook: /^[a-zA-Z\s]+$/,
+    priceNewBook: /^\d+$/,
+};
+
 
 //Remove book from the list if you have enough Coins. Subtract price from your wallet.
 let sellList = document.querySelectorAll('.sellBooksList');
@@ -68,88 +77,143 @@ sellList.forEach((book) => {
     })
 });
 
-//Create new book and set it for sale or into archive
+
+
+
+let inputData = document.querySelectorAll('.addNewBooks input');
+let validField = new Set();
 let createConfirm = document.querySelector('.conjureConfirm');
 
+inputData.forEach((item) => {
+    item.addEventListener('keyup', (e) => {
+        let value = e.target.value;
+        let regex = bookInfo[e.target.id];
+
+        if (e.target.value) {
+            if (regex.test(value)) {
+                e.target.style.backgroundColor = 'lightgreen';
+                validField.add(e.target.id);
+                e.target.parentElement.children[0].classList.replace('inactive', 'active');
+                e.target.parentElement.children[1].classList.replace('active', 'inactive');
+                console.log(validField.size);
+            } else {
+                e.target.style.backgroundColor = RED;
+                validField.delete(e.target.id);
+                e.target.parentElement.children[0].classList.replace('active', 'inactive');
+                e.target.parentElement.children[1].classList.replace('inactive', 'active');
+                console.log(validField.size);
+            };
+        } else {
+            e.target.style.backgroundColor = 'white';
+        };
+
+
+    })
+})
+
+console.log(validField.size);
 
 createConfirm.addEventListener('click', (e) => {
     let newName = document.querySelector('#nameNewBook').value;
     let newAuthor = document.querySelector('#authorNewBook').value;
     let newPrice = document.querySelector('#priceNewBook').value;
+    let location;
 
-    //for sale
-    if (document.querySelector('#sellNewBookYes').checked) {
-        //create new elements
-        let newLi = document.createElement('li');
-        let newDiv = document.createElement('div');
-        let newSpanName = document.createElement('span');
-        let newSpanAuthor = document.createElement('span');
-        let newSpanPrice = document.createElement('span');
-        let newSpanCoins = document.createElement('span');
-        let newButton = document.createElement('button');
+    if (validField.size == 0) {
+        e.target.textContent = 'Fill the form!';
+        e.target.style.backgroundColor = 'orange';
 
-        //add classes to new elements
-        newLi.classList.add('sellBook');
-        newDiv.classList.add('bookData');
-        newSpanName.classList.add('bookName');
-        newSpanAuthor.classList.add('bookAuthor');
-        newSpanPrice.classList.add('bookPrice');
-        newSpanCoins.classList.add('coinsPrice');
-        newButton.classList.add('button');
+    } else if (validField.size > 0 && validField.size < 3) {
+        e.target.textContent = 'Correct your mistakes and try again!';
+        e.target.style.backgroundColor = RED;
 
-        //add content to new elements
-        newSpanName.textContent = newName;
-        newSpanAuthor.textContent = `by ${newAuthor}`;
-        newSpanCoins.textContent = Number(newPrice);
-        newButton.textContent = 'This book shall be mine';
+    } else if (validField.size == 3) {
 
-        //construct new book (li) and append to list (ul)
-        newSpanPrice.append('For');
-        newSpanPrice.appendChild(newSpanCoins);
-        newSpanPrice.append('Coins');
-        newDiv.appendChild(newSpanName);
-        newDiv.appendChild(newSpanAuthor);
-        newDiv.appendChild(newSpanPrice);
-        newLi.appendChild(newDiv);
-        newLi.appendChild(newButton);
-        sellList.forEach((item) => {
-            item.appendChild(newLi)
-        });
+        e.target.style.backgroundColor = 'white';
+        e.target.textContent = 'Make it appear!';
+        validField.clear();
+        inputData.forEach((item) => {
+            item.value = '';
+            item.style.backgroundColor = 'white';
 
-        //set info that there are no more books left
-        if (document.querySelectorAll('.sellBooksList li').length != 0) {
-            document.querySelector('.empty').style.display = 'none';
-        }
-
-
-    } else {
-        let newLi = document.createElement('li');
-        let newSpanName = document.createElement('span');
-        let newSpanAuthor = document.createElement('span');
-        let archiveList = document.querySelectorAll('.archiveBooks');
-
-        newLi.classList.add('archiveBook');
-        newSpanName.classList.add('bookName');
-        newSpanAuthor.classList.add('bookAuthor');
-
-        newSpanName.textContent = newName;
-        newSpanAuthor.textContent = newAuthor;
-
-        newLi.appendChild(newSpanName);
-        newLi.appendChild(newSpanAuthor);
-        archiveList.forEach((item) => {
-            item.appendChild(newLi);
         })
+        //**for sale
+        if (document.querySelector('#sellNewBookYes').checked) {
+            //create new elements
+            location = 'has been put for sale!';
+            let newLi = document.createElement('li');
+            let newDiv = document.createElement('div');
+            let newSpanName = document.createElement('span');
+            let newSpanAuthor = document.createElement('span');
+            let newSpanPrice = document.createElement('span');
+            let newSpanCoins = document.createElement('span');
+            let newButton = document.createElement('button');
 
+            //add classes to new elements
+            newLi.classList.add('sellBook');
+            newDiv.classList.add('bookData');
+            newSpanName.classList.add('bookName');
+            newSpanAuthor.classList.add('bookAuthor');
+            newSpanPrice.classList.add('bookPrice');
+            newSpanCoins.classList.add('coinsPrice');
+            newButton.classList.add('button');
 
+            //add content to new elements
+            newSpanName.textContent = newName;
+            newSpanAuthor.textContent = `by ${newAuthor}`;
+            newSpanCoins.textContent = Number(newPrice);
+            newButton.textContent = 'This book shall be mine';
 
+            //construct new entry
+            newSpanPrice.append('For');
+            newSpanPrice.appendChild(newSpanCoins);
+            newSpanPrice.append('Coins');
+            newDiv.appendChild(newSpanName);
+            newDiv.appendChild(newSpanAuthor);
+            newDiv.appendChild(newSpanPrice);
+            newLi.appendChild(newDiv);
+            newLi.appendChild(newButton);
+            sellList.forEach((item) => {
+                item.appendChild(newLi)
+            });
 
+            //set info that there are no more books left
+            if (document.querySelectorAll('.sellBooksList li').length != 0) {
+                document.querySelector('.empty').style.display = 'none';
+            }
 
+            //**for archive
+        } else {
+            location = 'has been added to our archive!';
+            //create new elements
+            let newLi = document.createElement('li');
+            let newSpanName = document.createElement('span');
+            let newSpanAuthor = document.createElement('span');
+            let archiveList = document.querySelectorAll('.archiveBooks');
+            //add classes to new elements
+            newLi.classList.add('archiveBook');
+            newSpanName.classList.add('bookName');
+            newSpanAuthor.classList.add('bookAuthor');
+            //add content to new elements
+            newSpanName.textContent = newName;
+            newSpanAuthor.textContent = newAuthor;
+            //construct new entry
+            newLi.appendChild(newSpanName);
+            newLi.appendChild(newSpanAuthor);
+            archiveList.forEach((item) => {
+                item.appendChild(newLi);
+            })
+
+        }
+        alert(`
+        Book named "${newName}"
+        created by ${newAuthor}
+
+        ${location}
+        `);
 
 
     }
-
-
 })
 
 
