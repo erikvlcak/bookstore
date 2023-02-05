@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Bookstore</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,17 +14,19 @@
 
 <body>
 
-    <video autoplay muted loop>
-        <source src="./videos/magic_dust.mp4" type="video/mp4">
-    </video>
+    <div class="backgroundVideo">
+        <video class="background" autoplay muted loop>
+            <source src="./videos/magic-border.mp4" type="video/mp4">
+        </video>
+    </div>
 
     <div id="wrapper">
         <div id="header">
 
             <div class="add-money">
-                <label for="money">How many coins do you have?</label>
+                <label for="money">How many Coins do you have?</label>
                 <input type="text" name="money" id="money" placeholder="Let us know...">
-                <button class="button">This many!</button>
+                <button class="button">Add Coins to wallet!</button>
             </div>
 
             <div class="wallet">
@@ -93,15 +95,15 @@
                 <div id="archiveBooksList">
                     <ul class="archiveBooks">
                         <li class="archiveBook">
-                            <span class="bookName">How to disappear</span>
+                            <span class="bookName">How can magic make your life bearable</span>
                             <span class="bookAuthor">Alfons Redbeard</span>
                         </li>
                         <li class="archiveBook">
-                            <span class="bookName">Tales from the Underworld</span>
+                            <span class="bookName">Tales from the After-afterlife</span>
                             <span class="bookAuthor">Death Itself</span>
                         </li>
                         <li class="archiveBook">
-                            <span class="bookName">My wife is a Dragon</span>
+                            <span class="bookName">My wife is a Dragon and I hate it</span>
                             <span class="bookAuthor">Shalekh Harejama</span>
                         </li>
                     </ul>
@@ -113,43 +115,42 @@
         <div id="addNewBooksArea">
             <div class="addNewBooksAreaElements">
 
-                <h2>Conjure new book!</h2>
+                <h2>Write/Conjure new book!</h2>
 
                 <div class="addNewBooksElementsFlex">
 
                     <div class="addNewBooks">
-                        <div class="newName">
-                            <p>Add name of new spellbook</p>
+                        <div class="newName underline">
+                            <p>Add new title</p>
                             <input type="text" name="newBook" id="nameNewBook" class="addBook"
                                 placeholder="How shall we call it?">
                         </div>
-                        <div class="newAuthor">
+                        <div class="newAuthor underline">
                             <p>Add it's author</p>
                             <input type="text" name="newBook" id="authorNewBook" class="addBook"
                                 placeholder="Who wrote it?">
                         </div>
-                        <div class="newPrice">
+                        <div class="newPrice underline">
                             <p>Set it's price</p>
                             <input type="text" name="newBook" id="priceNewBook" class="addBook"
                                 placeholder="How much for it?">
                             <p>Coin(s)</p>
                         </div>
-                        <div class="Sellable">
-                            <p>Can we sell it?</p>
-                            <div class="sellYesNo">
-                                <input type="radio" name="sellNewBook" id="sellNewBookYes" checked>
-                                <label for="sellNewBookYes">Yes, put it for sale.</label>
-                                <input type="radio" name="sellNewBook" id="sellNewBookNo">
-                                <label for="sellNewBookNo">No, put it only into archive.</label>
+                        <div class="Sellable underline">
+                            <p>Where should we put it?</p>
+                            <div id="sellYesNo">
+                                <div class="sellYesRadio">
+                                    <input type="radio" name="sellNewBook" id="sellNewBookYes" checked>
+                                    <label for="sellNewBookYes">Only for sale</label>
+                                </div>
+                                <div class="sellNoRadio">
+                                    <input type="radio" name="sellNewBook" id="sellNewBookNo">
+                                    <label for="sellNewBookNo">Only into archive</label>
+                                </div>
+
                             </div>
                         </div>
-
-
-
-
                     </div>
-
-
                 </div>
                 <button type="submit button" class="conjureConfirm button">Make it appear!</button>
 

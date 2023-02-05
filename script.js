@@ -120,8 +120,32 @@ createConfirm.addEventListener('click', (e) => {
         if (document.querySelectorAll('.sellBooksList li').length != 0) {
             document.querySelector('.empty').style.display = 'none';
         }
+
+
     } else {
-        //for archive
+        let newLi = document.createElement('li');
+        let newSpanName = document.createElement('span');
+        let newSpanAuthor = document.createElement('span');
+        let archiveList = document.querySelectorAll('.archiveBooks');
+
+        newLi.classList.add('archiveBook');
+        newSpanName.classList.add('bookName');
+        newSpanAuthor.classList.add('bookAuthor');
+
+        newSpanName.textContent = newName;
+        newSpanAuthor.textContent = newAuthor;
+
+        newLi.appendChild(newSpanName);
+        newLi.appendChild(newSpanAuthor);
+        archiveList.forEach((item) => {
+            item.appendChild(newLi);
+        })
+
+
+
+
+
+
 
     }
 
