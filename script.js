@@ -82,8 +82,8 @@ sellList.forEach((book) => {
 
 let inputData = document.querySelectorAll('.addNewBooks input');
 let validField = new Set();
-let createConfirm = document.querySelector('.conjureConfirm');
 
+//enter info about new book
 inputData.forEach((item) => {
     item.addEventListener('keyup', (e) => {
         let value = e.target.value;
@@ -106,28 +106,32 @@ inputData.forEach((item) => {
         } else {
             e.target.style.backgroundColor = 'white';
         };
-
+        //if everything is filled correctly, enable submit button
+        if (validField.size == 3) {
+            createConfirm.disabled = false;
+            createConfirm.style.opacity = 1;
+        }
 
     })
 })
 
-console.log(validField.size);
+let createConfirm = document.querySelector('.conjureConfirm');
+//disable submit button initially
+document.addEventListener('DOMContentLoaded', (e) => {
+    createConfirm.disabled = true;
+    createConfirm.style.opacity = 0.5;
+})
 
+
+console.log(validField.size);
+//add new book
 createConfirm.addEventListener('click', (e) => {
     let newName = document.querySelector('#nameNewBook').value;
     let newAuthor = document.querySelector('#authorNewBook').value;
     let newPrice = document.querySelector('#priceNewBook').value;
     let location;
 
-    if (validField.size == 0) {
-        e.target.textContent = 'Fill the form!';
-        e.target.style.backgroundColor = 'orange';
-
-    } else if (validField.size > 0 && validField.size < 3) {
-        e.target.textContent = 'Correct your mistakes and try again!';
-        e.target.style.backgroundColor = RED;
-
-    } else if (validField.size == 3) {
+    if (validField.size == 3) {
 
         e.target.style.backgroundColor = 'white';
         e.target.textContent = 'Make it appear!';
@@ -135,8 +139,10 @@ createConfirm.addEventListener('click', (e) => {
         inputData.forEach((item) => {
             item.value = '';
             item.style.backgroundColor = 'white';
-
         })
+        e.target.disabled = true;
+        e.target.style.opacity = 0.5;
+
         //**for sale
         if (document.querySelector('#sellNewBookYes').checked) {
             //create new elements
@@ -214,6 +220,13 @@ createConfirm.addEventListener('click', (e) => {
 
 
     }
+});
+
+let searchBar = document.querySelector('#searchBox');
+
+searchBar.addEventListener('keyup', (e) => {
+    let value = e.target.value;
+
 })
 
 
