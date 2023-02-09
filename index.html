@@ -89,28 +89,7 @@
             </div>
         </div>
 
-        <div id="archiveBooksArea">
-            <div class="archiveBooksAreaElements">
-                <h2>Archived spellbooks*</h2>
-                <div id="archiveBooksList">
-                    <ul class="archiveBooks">
-                        <li class="archiveBook">
-                            <span class="bookName">How can magic make your life bearable</span>
-                            <span class="bookAuthor">Alfons Redbeard</span>
-                        </li>
-                        <li class="archiveBook">
-                            <span class="bookName">Tales from the After-afterlife</span>
-                            <span class="bookAuthor">Death Itself</span>
-                        </li>
-                        <li class="archiveBook">
-                            <span class="bookName">My wife is a Dragon and I hate it</span>
-                            <span class="bookAuthor">Shalekh Harejama</span>
-                        </li>
-                    </ul>
-                </div>
-                <p class="warning">*Too dangerous to be passed around.</p>
-            </div>
-        </div>
+
 
         <div id="addNewBooksArea">
             <div class="addNewBooksAreaElements">
@@ -164,9 +143,33 @@
             </div>
         </div>
 
+        <div id="archiveBooksArea">
+            <div class="archiveBooksAreaElements">
+                <h2>List of archived spellbooks*</h2>
+                <div id="archiveBooksList">
+                    <!-- archiveList -->
+                    <ul class="archiveBooks">
+                        <li class="archiveBook">
+                            <span class="bookName">How can magic make your life bearable</span>
+                            <span class="bookAuthor">Alfons Redbeard</span>
+                        </li>
+                        <li class="archiveBook">
+                            <span class="bookName">Tales from the After-afterlife</span>
+                            <span class="bookAuthor">Death Itself</span>
+                        </li>
+                        <li class="archiveBook">
+                            <span class="bookName">My wife can a Dragon and I hate it</span>
+                            <span class="bookAuthor">Shalekh Harejama</span>
+                        </li>
+                    </ul>
+                </div>
+                <p class="warning">*Too dangerous to be passed around.</p>
+            </div>
+        </div>
+
         <div id="burnBooksArea">
             <div class="burnBooksAreaElements">
-                <h2>Burn these blasphemous books!</h2>
+                <h2>Burn archived spellbook!*</h2>
 
                 <div class="searchText">
                     <div class="searchBurnBooksRadio">
@@ -183,10 +186,14 @@
 
                 </div>
                 <ul id="burnBooksList">
-                    <li id="burnNothing">Nothing to burn...</li>
+                    <li class="burnBook">
+                        <span class="burnName"></span>
+                        <span class="burnAuthor"></span>
+                    </li>
                 </ul>
 
                 <button type="submit button" class="conjureConfirm button">Burn it!</button>
+                <p class="warning">*Too dangerous to even be kept on this world.</p>
             </div>
         </div>
         <div id="footer">

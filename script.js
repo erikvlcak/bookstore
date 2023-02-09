@@ -122,6 +122,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
     createConfirm.style.opacity = 0.5;
 })
 
+let archiveList = document.querySelector('.archiveBooks');
 
 console.log(validField.size);
 //add new book
@@ -195,7 +196,7 @@ createConfirm.addEventListener('click', (e) => {
             let newLi = document.createElement('li');
             let newSpanName = document.createElement('span');
             let newSpanAuthor = document.createElement('span');
-            let archiveList = document.querySelectorAll('.archiveBooks');
+
             //add classes to new elements
             newLi.classList.add('archiveBook');
             newSpanName.classList.add('bookName');
@@ -223,11 +224,18 @@ createConfirm.addEventListener('click', (e) => {
 });
 
 let searchBar = document.querySelector('#searchBox');
+let searchRadio = document.querySelectorAll('.searchBurnBooksRadio');
+let books = archiveList.querySelectorAll('.archiveBook');
+let burnList = document.querySelector('#burnBooksList');
 
 searchBar.addEventListener('keyup', (e) => {
-    let value = e.target.value;
 
-})
+    books.forEach((item) => {
+        if (item.querySelector('.bookAuthor').textContent.toLowerCase().includes(e.target.value)) {
 
+            burnList.querySelector('.burnName').textContent = item.querySelector('.bookName').textContent;
+            burnList.querySelector('.burnAuthor').textContent = item.querySelector('.bookAuthor').textContent;
 
-
+        }
+    })
+});
