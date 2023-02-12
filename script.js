@@ -118,9 +118,10 @@ inputData.forEach((item) => {
 let createConfirm = document.querySelector('.conjureConfirm');
 //disable submit button initially
 document.addEventListener('DOMContentLoaded', (e) => {
-    createConfirm.disabled = true;
-    createConfirm.style.opacity = 0.5;
+    confirmBtnsDisabled();
 })
+
+
 
 let archiveList = document.querySelector('.archiveBooks');
 
@@ -227,15 +228,87 @@ let searchBar = document.querySelector('#searchBox');
 let searchRadio = document.querySelectorAll('.searchBurnBooksRadio');
 let books = archiveList.querySelectorAll('.archiveBook');
 let burnList = document.querySelector('#burnBooksList');
+let BurnConfirm = document.querySelector('#burnBooksArea button');
 
+//search for book from Archive to be deleted
 searchBar.addEventListener('keyup', (e) => {
 
-    books.forEach((item) => {
-        if (item.querySelector('.bookAuthor').textContent.toLowerCase().includes(e.target.value)) {
+    searchRadio.forEach((item) => {
 
-            burnList.querySelector('.burnName').textContent = item.querySelector('.bookName').textContent;
-            burnList.querySelector('.burnAuthor').textContent = item.querySelector('.bookAuthor').textContent;
+        //search by book name
+        if (item.querySelector('#burnBookName').checked) {
 
+            books.forEach((item) => {
+                if (item.querySelector('.bookName').textContent.toLowerCase().includes(e.target.value.toLowerCase())) {
+                    showSearchResult(item);
+                }
+            })
+            //if search field is empty then empty results list
+            if ((e.target.value == '')) {
+                clearSearchResults();
+            }
+
+            //search by book author
+        } else {
+            books.forEach((item) => {
+                if (item.querySelector('.bookAuthor').textContent.toLowerCase().includes(e.target.value.toLowerCase())) {
+                    showSearchResult(item);
+                }
+            })
+            //if search field is empty then empty results list
+            if ((e.target.value == '')) {
+                clearSearchResults();
+            }
         }
     })
+
 });
+
+BurnConfirm.addEventListener('click', (e) => {
+    if ((burnList.querySelector('.burnName').textContent != '')
+        && (burnList.querySelector('.burnAuthor').textContent != '')) {
+
+        let foundName = burnList.querySelector('.burnName').textContent;
+        let foundAuthor = burnList.querySelector('.burnAuthor').textContent;
+
+        books.forEach((item) => {
+
+            if ((item.children[0].textContent.includes(foundName))
+                && (item.children[1].textContent.includes(foundAuthor))) {
+
+                item.parentElement.removeChild(item);
+                searchBar.value = '';
+                clearSearchResults();
+
+            }
+        })
+
+
+    }
+})
+
+
+
+
+function showSearchResult(item) {
+    burnList.querySelector('.burnName').textContent = item.querySelector('.bookName').textContent;
+    burnList.querySelector('.burnAuthor').textContent = item.querySelector('.bookAuthor').textContent;
+    burnList.classList.add('underline');
+    BurnConfirm.disabled = false;
+    BurnConfirm.style.opacity = 1;
+}
+
+function clearSearchResults() {
+    burnList.querySelector('.burnName').textContent = '';
+    burnList.querySelector('.burnAuthor').textContent = '';
+    burnList.classList.remove('underline');
+    BurnConfirm.disabled = true;
+    BurnConfirm.style.opacity = 0.5;
+}
+
+function confirmBtnsDisabled() {
+    createConfirm.disabled = true;
+    createConfirm.style.opacity = 0.5;
+    BurnConfirm.disabled = true;
+    BurnConfirm.style.opacity = 0.5;
+}
