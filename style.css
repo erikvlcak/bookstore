@@ -491,6 +491,17 @@ input[type=checkbox] {
     color: white;
 }
 
+.display-none {
+    display: none;
+}
+
+.display-center {
+    display: block;
+    font-size: 28px;
+    color: white;
+    text-align: center;
+}
+
 .coinsPrice {
     text-decoration: underline;
     color: gold;

@@ -27,7 +27,7 @@ coinsField.addEventListener('click', (e) => {
             coinsField.querySelector('input').disabled = 'true';
             coinsField.querySelector('label').textContent = 'Coins are in your wallet.'
             wallet = value;
-            console.log(wallet);
+
         } else if (isFinite(value) && value < 0) {
             coinsField.querySelector('input').value = '';
             alert('C\'mon, you can\'t have negative coins.');
@@ -52,7 +52,7 @@ sellList.forEach((book) => {
     book.addEventListener('click', (e) => {
         if (e.target.tagName == 'BUTTON') {
             let bookPrice = parseInt(e.target.previousElementSibling.querySelector('.coinsPrice').textContent);
-            console.log(`bookPrice is ${bookPrice}`)
+
             if (!wallet) {
                 alert('You have no money in your wallet. Add some!');
             } else if (parseInt(bookPrice) <= parseInt(wallet)) {
@@ -95,13 +95,13 @@ inputData.forEach((item) => {
                 validField.add(e.target.id);
                 e.target.parentElement.children[0].classList.replace('inactive', 'active');
                 e.target.parentElement.children[1].classList.replace('active', 'inactive');
-                console.log(validField.size);
+
             } else {
                 e.target.style.backgroundColor = RED;
                 validField.delete(e.target.id);
                 e.target.parentElement.children[0].classList.replace('active', 'inactive');
                 e.target.parentElement.children[1].classList.replace('inactive', 'active');
-                console.log(validField.size);
+
             };
         } else {
             e.target.style.backgroundColor = 'white';
@@ -124,8 +124,8 @@ document.addEventListener('DOMContentLoaded', (e) => {
 
 
 let archiveList = document.querySelector('.archiveBooks');
+let books = document.querySelectorAll('.archiveBook');
 
-console.log(validField.size);
 //add new book
 createConfirm.addEventListener('click', (e) => {
     let newName = document.querySelector('#nameNewBook').value;
@@ -187,7 +187,7 @@ createConfirm.addEventListener('click', (e) => {
 
             //set info that there are no more books left
             if (document.querySelectorAll('.sellBooksList li').length != 0) {
-                document.querySelector('.empty').style.display = 'none';
+                document.querySelector('.sellBooksList .empty').style.display = 'none';
             }
 
             //**for archive
@@ -208,10 +208,8 @@ createConfirm.addEventListener('click', (e) => {
             //construct new entry
             newLi.appendChild(newSpanName);
             newLi.appendChild(newSpanAuthor);
-            archiveList.forEach((item) => {
-                item.appendChild(newLi);
-            })
-
+            archiveList.appendChild(newLi);
+            document.querySelector('#archiveBooksList p').classList.replace('display-center', 'display-none');
         }
         alert(`
         Book named "${newName}"
@@ -225,61 +223,92 @@ createConfirm.addEventListener('click', (e) => {
 });
 
 let searchBar = document.querySelector('#searchBox');
-let searchRadio = document.querySelectorAll('.searchBurnBooksRadio');
-let books = archiveList.querySelectorAll('.archiveBook');
+
 let burnList = document.querySelector('#burnBooksList');
 let BurnConfirm = document.querySelector('#burnBooksArea button');
+
+let burnBook = document.querySelector('#burnBooksList li');
 
 //search for book from Archive to be deleted
 searchBar.addEventListener('keyup', (e) => {
 
-    searchRadio.forEach((item) => {
 
-        //search by book name
-        if (item.querySelector('#burnBookName').checked) {
 
-            books.forEach((item) => {
-                if (item.querySelector('.bookName').textContent.toLowerCase().includes(e.target.value.toLowerCase())) {
-                    showSearchResult(item);
-                }
-            })
-            //if search field is empty then empty results list
-            if ((e.target.value == '')) {
-                clearSearchResults();
+    //search by book name
+    if (document.querySelector('#burnBookName').checked) {
+
+        books.forEach((item) => {
+            if (item.querySelector('.bookName').textContent.toLowerCase().includes(e.target.value.toLowerCase())) {
+                burnList.querySelector('.burnName').textContent = item.querySelector('.bookName').textContent;
+                burnList.querySelector('.burnAuthor').textContent = item.querySelector('.bookAuthor').textContent;
+                burnList.classList.add('underline');
+                BurnConfirm.disabled = false;
+                BurnConfirm.style.opacity = 1;
+
             }
-
-            //search by book author
-        } else {
-            books.forEach((item) => {
-                if (item.querySelector('.bookAuthor').textContent.toLowerCase().includes(e.target.value.toLowerCase())) {
-                    showSearchResult(item);
-                }
-            })
-            //if search field is empty then empty results list
-            if ((e.target.value == '')) {
-                clearSearchResults();
-            }
+        })
+        //if search field is empty then empty results list
+        if ((e.target.value == '')) {
+            burnList.querySelector('.burnName').textContent = '';
+            burnList.querySelector('.burnAuthor').textContent = '';
+            burnList.classList.remove('underline');
+            BurnConfirm.disabled = true;
+            BurnConfirm.style.opacity = 0.5;
         }
-    })
 
-});
+        //search by book author
+    } else {
+        books.forEach((item) => {
+            if (item.querySelector('.bookAuthor').textContent.toLowerCase().includes(e.target.value.toLowerCase())) {
+                burnList.querySelector('.burnName').textContent = item.querySelector('.bookName').textContent;
+                burnList.querySelector('.burnAuthor').textContent = item.querySelector('.bookAuthor').textContent;
+                burnList.classList.add('underline');
+                BurnConfirm.disabled = false;
+                BurnConfirm.style.opacity = 1;
+
+            }
+        })
+        //if search field is empty then empty results list
+        if ((e.target.value == '')) {
+            burnList.querySelector('.burnName').textContent = '';
+            burnList.querySelector('.burnAuthor').textContent = '';
+            burnList.classList.remove('underline');
+            BurnConfirm.disabled = true;
+            BurnConfirm.style.opacity = 0.5;
+        }
+    }
+})
+
+
 
 BurnConfirm.addEventListener('click', (e) => {
     if ((burnList.querySelector('.burnName').textContent != '')
         && (burnList.querySelector('.burnAuthor').textContent != '')) {
 
-        let foundName = burnList.querySelector('.burnName').textContent;
-        let foundAuthor = burnList.querySelector('.burnAuthor').textContent;
 
-        books.forEach((item) => {
+        books.forEach((book) => {
 
-            if ((item.children[0].textContent.includes(foundName))
-                && (item.children[1].textContent.includes(foundAuthor))) {
+            // let foundName = ;
+            // let foundAuthor = ;
 
-                item.parentElement.removeChild(item);
+            if ((book.children[0].textContent.includes(burnBook.querySelector('.burnName').textContent))
+                && (book.children[1].textContent.includes(burnBook.querySelector('.burnAuthor').textContent))) {
+
+                let li = book.firstChild.parentElement;
+
+                book.parentElement.removeChild(li);
+
                 searchBar.value = '';
-                clearSearchResults();
+                alert(`book has been deleted from archive.`);
 
+                burnBook.querySelector('.burnName').textContent = '';
+                burnBook.querySelector('.burnAuthor').textContent = '';
+
+
+
+                if (archiveList.querySelectorAll('li').length == 0) {
+                    document.querySelector('#archiveBooksList p').classList.replace('display-none', 'display-center');
+                }
             }
         })
 
@@ -290,21 +319,13 @@ BurnConfirm.addEventListener('click', (e) => {
 
 
 
-function showSearchResult(item) {
-    burnList.querySelector('.burnName').textContent = item.querySelector('.bookName').textContent;
-    burnList.querySelector('.burnAuthor').textContent = item.querySelector('.bookAuthor').textContent;
-    burnList.classList.add('underline');
-    BurnConfirm.disabled = false;
-    BurnConfirm.style.opacity = 1;
-}
+// function showSearchResult(item) {
 
-function clearSearchResults() {
-    burnList.querySelector('.burnName').textContent = '';
-    burnList.querySelector('.burnAuthor').textContent = '';
-    burnList.classList.remove('underline');
-    BurnConfirm.disabled = true;
-    BurnConfirm.style.opacity = 0.5;
-}
+// }
+
+// function clearSearchResults() {
+
+// }
 
 function confirmBtnsDisabled() {
     createConfirm.disabled = true;
